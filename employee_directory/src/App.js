@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from "react";
+// useEffect is a named export (non default export)
+import Jumbotron from "./components/Header/Jumbotron";
+import axios from "axios";
+import EmployeeTable from "./components/EmployeeTable/EmployeeTable";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    //defining new state called employees, also have a function which allows us to set the data within the employees state
+    const [employees, setEmployees]= useState([]) 
+    useEffect( () => {
+        axios.get("https://randomuser.me/api/?results=200").then((results) =>{
+        setEmployees(results.data.results) //rerender of the component...anytime you modify any state or props
+        })
+    }, [])
+
+    return (
+        <div>
+            {console.log(employees)}
+    <Jumbotron />
+    <EmployeeTable employeeData= {employees}/>
     </div>
-  );
+    )
 }
 
 export default App;

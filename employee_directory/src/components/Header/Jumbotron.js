@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import ".style.css";
+import React from "react";
+import "./style.css";
 import Searchbar from "../SearchBar/Searchbar";
 
-class Jumbotron extends Component {
+// By extending the React.Component class, Jumbotron inherits functionality from it
+class Jumbotron extends React.Component {
 render() {
   return (
     <div className="jumbotron jumbotron-fluid">
