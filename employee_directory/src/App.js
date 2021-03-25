@@ -6,6 +6,7 @@ import EmployeeTable from "./components/EmployeeTable/EmployeeTable";
 
 
 function App() {
+    // declaring a new state 
     //defining new state called employees, also have a function which allows us to set the data within the employees state
     const [employees, setEmployees]= useState([]) 
     useEffect( () => {
