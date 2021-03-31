@@ -1,68 +1,72 @@
-import React from 'react';
-import { MDBDataTable } from 'mdbreact';
+import React from "react";
+import { MDBDataTable } from "mdbreact";
 
 const DatatablePage = (props) => {
-  var employeeImg = props.employeeData[0]?.picture?.thumbnail;
-  var imageurl = "https://randomuser.me/api/portraits/" + employeeImg
+  const rowData = props.employeeData.map((info) => {
+    return {
+      age: info.dob.age, 
+      image: <img alt={info.name.first} src={info.picture.medium} />,
+      firstName: info.name.first,
+      lastName: info.name.last,
+      phoneNumber: info.phone,
+      location: info.location.city + "," + info.location.state,
+      email: info.email,
+    };
+  });
+
+  const itsPopulated = rowData.length > 0;
+  console.log({ rowData });
+
   const data = {
     columns: [
       {
-        label: 'Image',
-        field: 'image',
-        sort: 'asc',
-        width: 150
+        label: "Age",
+        field: "age",
+        sort: "asc",
+        width: 150,
       },
       {
-        label: 'First Name',
-        field: 'firstName',
-        sort: 'asc',
-        width: 150
+        label: "Image",
+        field: "image",
+        sort: "asc",
+        width: 150,
       },
       {
-        label: 'Last Name',
-        field: 'lastName',
-        sort: 'asc',
-        width: 150
+        label: "First Name",
+        field: "firstName",
+        sort: "asc",
+        width: 150,
       },
       {
-        label: 'Phone Number',
-        field: 'phoneNumber',
-        sort: 'asc',
-        width: 270
+        label: "Last Name",
+        field: "lastName",
+        sort: "asc",
+        width: 150,
       },
       {
-        label: 'Email',
-        field: 'email',
-        sort: 'asc',
-        width: 200
+        label: "Phone Number",
+        field: "phoneNumber",
+        sort: "asc",
+        width: 270,
       },
+      {
+        label: "Location",
+        field: "location",
+        sort: "asc",
+        width: 200,
+      },
+      {
+        label: "Email",
+        field: "email",
+        sort: "asc",
+        width: 200,
+      },
+      
     ],
-    rows: [
-      {
-        image: imageurl,
-        firstName: props.employeeData[0]?.name?.first,
-        lastName: props.employeeData[0]?.name?.last,
-        phoneNumber: props.employeeData[0]?.phone,
-       email: props.employeeData[0]?.email
-      },
-      {
-        image: props.employeeData[1]?.picture?.thumbnail,
-        firstName: props.employeeData[1]?.name?.first,
-        lastName: props.employeeData[1]?.name?.last,
-        phoneNumber: props.employeeData[1]?.phone,
-       email: props.employeeData[1]?.email
-      },
-    ]
+    rows: itsPopulated && rowData,
   };
 
-  return (
-    <MDBDataTable
-      striped
-      bordered
-      small
-      data={data}
-    />
-  );
-}
+  return <MDBDataTable striped bordered large data={data} />;
+};
 
 export default DatatablePage;

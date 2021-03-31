@@ -1,6 +1,11 @@
 .jumbotron {
-    background: #f9b713;
+    background: #850536;
     height: 200px;
+    color: white;
+  }
+
+  .display-4 {
+    text-align: center;
   }
   
   .header h1 {
@@ -9,4 +14,8 @@
     text-align: center;
     color: white;
     font-size: 3rem;
+    text-align: center;
+  }
+  .lead {
+text-align: center;
   }
