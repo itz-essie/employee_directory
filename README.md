@@ -50,11 +50,14 @@ npm start
 go to browser and enter localhost:3000
 ```
 ## Links
-**[Deployed Link]()**
+**[Deployed Link](https://itz-essie.github.io/employee_directory/)**
 
+Screenshot 
 ![Screenshot of App](employee_directory/images/screenshot.png)
 
-![Demo of App](employee_directory/images/screenshot.png)
+Demo of App
+
+![Demo of App](employee_directory/images/Employeedirectory.gif)
 
 
 ## Questions
